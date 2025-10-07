@@ -20,7 +20,7 @@ export class Dashboard {
       console.table(res);
     })
 
-    this.http.get('http://localhost:8082/api/v1/dashboard/category-avg-price')
+    this.http.get('http://localhost:8082/api/v1/dashboard/category-avgprice')
       .subscribe((res: any) => {
       console.table(res);
     })
