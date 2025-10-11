@@ -1,1 +1,53 @@
-<p>search-products works!</p>
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <h4> List of products registered </h4>
+            <p> Here you can search for products data base </p>
+            <hr />
+
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Created at</th>
+                        <th>Category</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                   <tr *ngFor="let p of products()">
+                    
+                    <td>{{ p.name | uppercase}}</td>
+                    <td>{{ p.price | currency:'BRL'}}</td>
+                    <td>{{ p.quantity }}</td>
+                    <td> {{p.quantity * p.price | currency:'BRL'}}</td>
+                    <td>{{ p.createdAt | date:'dd/MM/yy HH:mm'}}</td>
+                    <td>{{ p.categoryId | uppercase}}</td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-sm me-2">
+                            Edit</button>
+                        <button (click) = "deleteProduct(p.id)" 
+                            class="btn btn-outline-danger btn-sm">Delete</button>
+                    </td>
+                   </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7" >
+                            Quantity of products: {{ products().length }}
+                        </td>
+                    </tr>
+                </tfoot>
+
+            </table>
+
+        </div>
+    </div>
+</div>
